@@ -1,0 +1,52 @@
+.forecast
+  .content.current.container.mb-3
+    .row.text-center
+      %h2.mb-3
+        = "Weather at #{@forecast.zipcode}"
+    .row.text-center
+      %h4
+        = weather_code_to_description(@forecast.current.code)
+    .row.mb-2
+      .col
+        = image_tag(weather_code_to_icon_path(@forecast.current.code), class: 'float-end', size: '90x90')
+      .col
+        %h1
+          = "#{@forecast.current.temperature}°"
+        %h6
+          = "Min #{@forecast.current.min}°"
+          = " / "
+          = "Max #{@forecast.current.max}°"
+    .row.mb-2
+      - if flash['from_cache']
+        .col.text-center
+          .badge.bg-danger
+            %small Retrieved from cache
+
+  .row
+    .col.mb-3
+      = link_to '← Search Another Address', root_path, class: 'btn btn-primary w-100'
+
+  .content.extended.container
+    .row.text-center.mb-3
+      %h5.text-decoration-underline
+        = "#{@forecast.extended.size} Day Forecast for #{@forecast.zipcode}"
+
+    - @forecast.extended.each do |interval|
+      .row.mb-3.mt-2
+        .col.text-center
+          .details.float-end
+            .description.mb-1
+              = weather_code_to_description(interval.code)
+            .icon
+              = image_tag(weather_code_to_icon_path(interval.code), size: '65x65')
+        .col
+          %h6.mb-2
+            = interval.timestamp.to_fs
+          %h4
+            = "#{interval.temperature}°"
+          %small
+            = "Min #{interval.min}°"
+            = ' / '
+            = "Max #{interval.max}°"
+      .row
+        %hr

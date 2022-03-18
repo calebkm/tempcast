@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Tempcast
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+
+  %body
+    .container-sm
+      .row
+        .col-sm
+          = link_to(image_tag(image_url('logo.png'), class: 'logo w-100 mb-3'), root_path)
+        .col-sm
+    .content.container-sm
+      .row
+        = yield

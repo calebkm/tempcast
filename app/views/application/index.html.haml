@@ -1,0 +1,5 @@
+- if @forecast
+  = render partial: 'forecasts/forecast'
+- else
+  .forecast-form
+    = render partial: 'form'

@@ -1,0 +1,20 @@
+body {
+  background-image: image-url('watercolor-bg.jpg');
+  background-position: left top;
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  padding: 15px;
+  padding-top: 75px;
+}
+
+.content {
+  padding: 15px;
+  min-height: 100px;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-radius: 10px;
+}
+
+.logo {
+  max-width: 300px;
+}
