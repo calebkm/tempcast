@@ -40,3 +40,6 @@ and other less obvious bits of code are explained with concise comments.
 * DB schema migration: `rake db:migrate`
 * Run test suite: `rspec`
 * Deploy a branch to Heroku: `git push heroku <branch>`
+
+#### License
+Licensed under MIT License Copyright (c) 2022 Caleb Matthiesen. See LICENSE for further details.
