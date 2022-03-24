@@ -1,7 +1,7 @@
 .forecast-form
   = form_tag '/' do
     .mt-2.mb-2
-      = label_tag :address, 'Enter an address for 15 day weather forecast.', class: 'h4 text-light'
+      = label_tag :address, 'Enter address for 16 day weather forecast.', class: 'h4 text-light'
     .mb-4
       = text_field_tag :address, nil, placeholder: "Example: #{random_placeholder_address}", class: 'form-control w-100'
     .flash
