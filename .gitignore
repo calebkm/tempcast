@@ -7,6 +7,9 @@
 # Ignore environment variables in development.
 /.env
 
+# Ignore RubyMine files
+/.idea
+
 # Ignore annoying OSX .DS_Store files.
 .DS_Store
 
