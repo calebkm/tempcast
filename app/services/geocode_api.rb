@@ -4,14 +4,14 @@ class GeocodeApi
 
   BASE_URI = 'http://api.positionstack.com/v1/forward'
 
-  attr_reader :results, :latitude, :longitude, :zipcode
+  attr_reader :latitude, :longitude, :zipcode
 
   # Convenience method allowing class level calls to `get`,
   # while still providing all the niceties of instance instantiation.
   #
   # For example:
   #     GeocodeApi::get(address: '6060 Wilshire Blvd, Los Angeles, CA 90036')
-  #       => #<GeocodeApi @latitude=34.06273, @longitude=-118.361035, @zipcode="90036", ...>
+  #     => #<GeocodeApi @latitude=34.06273, @longitude=-118.361035, @zipcode="90036", ...>
   def self.get(address:)
     self.new(address: address).get
   end

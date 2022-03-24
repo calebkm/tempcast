@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'webmock/rspec'
 
 RSpec.describe ApplicationController, type: :controller do
   context "GET /index" do

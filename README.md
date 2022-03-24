@@ -14,21 +14,17 @@ This app tends to follow the [Airbnb Ruby Styleguide](https://github.com/airbnb/
 when it comes to comments. Boilerplate Rails code is left more or less uncommented, where service objects
 and other less obvious bits of code are explained with concise comments.
 
-### Todos
-* Testing coverage for APIs incomplete
-* Testing coverage for Forecasts controller incomplete
-
 ### Notes
 * In Chrome the JS console will likely warn `Failed to resolve module specifier "controllers".` This is a [known issue](https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim).
 
 #### Future improvements
-* The app does not currently take day/night into account when displaying weather icons.
-* Currently all API queries are synchronous.
-* JavaScript has not been used to dynamically display content after a query.
-* The DB is never swept of the cache.
-* Only US addresses with zipcodes are currently valid.
-* Geocoding results mapping lat/long to zipcode are not cached.
+* API queries should be made asynchronously.
+* JavaScript should be used to dynamically display results after a query.
+* DB cache should be swept when stale.
+* Queries are currently limited to US addresses with zipcodes.
+* Geocoding API results mapping lat/long to zipcode should be cached.
 * AJAX spinners when queries are performed.
+* Weather icons should take day/night into account.
 
 #### System details
 * [Ruby on Rails](https://rubyonrails.org): 7.0.2
