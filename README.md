@@ -1,4 +1,4 @@
-# [Tempcast](https://tempcast.herokuapp.com) ------
+# Tempcast ------
 
 ### Extended weather forecasts.
 
@@ -18,17 +18,17 @@ and other less obvious bits of code are explained with concise comments.
 * In Chrome the JS console will likely warn `Failed to resolve module specifier "controllers".` This is a [known issue](https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim).
 
 #### Future improvements
-* API queries should be made asynchronously.
-* JavaScript should be used to dynamically display results after a query.
+* API queries should be made asynchronously via ajax.
+* JS should be used to dynamically display results after a query.
 * DB cache should be swept when stale.
 * Queries are currently limited to US addresses with zipcodes.
-* Geocoding API results mapping lat/long to zipcode should be cached.
-* AJAX spinners when queries are performed.
-* Weather icons should take day/night into account.
+* Ajax spinners when queries are performed.
+* Weather icons should adjust for day/night.
 
 #### System details
-* [Ruby on Rails](https://rubyonrails.org): 7.0.2
 * [Ruby](https://www.ruby-lang.org): 3.1.1
+* [Ruby on Rails](https://rubyonrails.org): 7.0.2
+* [Postgres](https://www.postgresql.org)
 
 #### APIs
 * Geocoding API: [Positionstack](https://positionstack.com/documentation)
@@ -39,7 +39,6 @@ and other less obvious bits of code are explained with concise comments.
 * Create DB: `rake db:create`
 * DB schema migration: `rake db:migrate`
 * Run test suite: `rspec`
-* Deploy a branch to Heroku: `git push heroku <branch>`
 
 #### License
-Licensed under MIT License Copyright (c) 2022 Caleb Matthiesen. See LICENSE for further details.
+Licensed under MIT License Copyright (c) 2023 Caleb KM. See LICENSE for further details.

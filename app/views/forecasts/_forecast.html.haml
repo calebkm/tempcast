@@ -17,7 +17,7 @@
           = " / "
           = "Max #{@forecast.current.max}°"
     .row.mb-2
-      - if flash['from_cache']
+      - if @retrieved_from_cache
         .col.text-center
           .badge.bg-danger
             %small Retrieved from cache

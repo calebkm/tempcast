@@ -5,7 +5,7 @@ class WeatherApi
   BASE_URI = 'https://api.tomorrow.io/v4/timelines'
 
   # Tomorrow.io "weatherCode" mapping.
-  # Converts the returned code to a textual description.
+  # Converts the returned code into a human readable description.
   DESCRIPTION = {
       '0'    => 'Unknown',
       '1000' => 'Clear',
@@ -33,7 +33,7 @@ class WeatherApi
       '7000' => 'Ice Pellets',
       '7101' => 'Heavy Ice Pellets',
       '7102' => 'Light Ice Pellets',
-      '8000' => 'Thunderstorm'
+      '8000' => 'Thunderstorm',
     }
 
   attr_reader :intervals
@@ -52,9 +52,9 @@ class WeatherApi
   # Requires the latitude and longitude coordinates.
   # Sets default instance var values.
   def initialize(latitude:, longitude:)
-    @error = false
     @latitude = latitude
     @longitude = longitude
+    @error = false
     @response = nil
     @intervals = []
   end

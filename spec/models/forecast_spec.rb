@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Forecast, type: :model do
+  let(:cached_minutes) { Forecast::CACHED_MINUTES } 
+
   context 'validation tests' do
     it 'requires zipcode presence' do
       is_valid = Forecast.new.save
@@ -19,11 +21,11 @@ RSpec.describe Forecast, type: :model do
   context 'scope tests' do
     before(:each) do
       Forecast.create(zipcode: '12345', created_at: DateTime.now)
-      Forecast.create(zipcode: '12345', created_at: DateTime.now - 20.minutes)
-      Forecast.create(zipcode: '12345', created_at: DateTime.now - 60.minutes)
+      Forecast.create(zipcode: '67890', created_at: DateTime.now - (cached_minutes + 1))
+      Forecast.create(zipcode: '87654', created_at: DateTime.now - (cached_minutes - 1))
     end
 
-    it "'cached' should not return forecasts older than 30 minutes." do
+    it "'cached' should not return forecasts older than CACHED_MINUTES" do
       expect(Forecast.cached.size).to eq(2)
     end
   end
@@ -38,7 +40,7 @@ RSpec.describe Forecast, type: :model do
     end
 
     let(:forecast) do
-      forecast = Forecast.new(zipcode: '12345')
+      forecast = Forecast.new(zipcode: '34567')
       forecast.intervals.build(timestamps)
       forecast.save
       forecast

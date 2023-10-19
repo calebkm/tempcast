@@ -78,15 +78,13 @@ RSpec.describe ForecastsController, type: :controller do
 
       post :create, params: {address: address}
 
-      # Cheat a little and just check for our cache flash flag
-      expect(flash['from_cache']).to be_truthy
+      expect(assigns(:retrieved_from_cache)).to be_truthy
     end
 
     it 'should not render from cache if new query' do
       post :create, params: {address: address}
 
-      # Cheat a little and just check for our cache flash flag
-      expect(flash['from_cache']).to be_falsy
+      expect(assigns(:retrieved_from_cache)).to be_falsy
     end
   end
 end

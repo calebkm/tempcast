@@ -38,7 +38,7 @@ class ForecastsController < ApplicationController
 
   def cached_forecast
     @forecast = Forecast.cached.where(zipcode: @geocode.zipcode).first
-    flash['from_cache'] = !!@forecast # If forecast was pulled from cache use flash in view to indicate
+    @retrieved_from_cache = !!@forecast
   end
 
   def get_weather
